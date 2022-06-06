@@ -1,0 +1,68 @@
+Built-in Directive:
+
+   new Vue({
+          data:
+          {
+               user:"asad",
+               age:22,
+               allowedAge:18,
+               friend:['asad','rahat','shanto','ridoy']
+               dict:{
+                     name:'asad',
+                     age:22
+                     }
+
+          },
+          methods:
+          {
+               func()
+               {
+                return this.age >= this.alowedAge ? true:false;
+               }
+   });
+
+ 
+   in Html:
+ 
+     <p v-if="age > allowedAge">You are allowed</p>
+         //nothing should be here
+     <p v-else-if="age ===  allowedAge">You are allowed</p>
+        //nothing should be here
+     <p v-else>You are not allowed</p>
+
+     
+     <p v-if="func()">You are allowed</p>
+
+     <p v-show="func()">You are allowed</p>   //at least print in inspect
+
+
+    for in array:
+
+    <div id="app">
+      <p v-for="frnd in friend">
+       {{frnd}}
+      </p>
+    </div>
+
+
+    <div id="app">
+      <p v-for="(frnd,i) in friend">
+       {{i}} :  {{frnd}}
+      </p>
+    </div>
+
+
+    for in dictionary:
+
+
+      <p v-for="(val,key,index) in dict">
+      {{index}} : {{key}} = {{frnd}}
+      </p>
+
+   for as count er:
+
+    <p v-for="i in 10">  [1-10]
+    {{i}}
+    </p>
+
+

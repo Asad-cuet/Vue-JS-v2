@@ -1,0 +1,20 @@
+Built-in Directive:
+
+   new Vue({
+          data:
+          {
+                src="link",
+                alt:"Image",
+                myText:"I am Asad",
+                myHtml:"<strong>text</strong>"
+          }
+   });
+
+    in html: [ v-bind:   is for attribute]
+
+    <img v-bind:src="src" v-bind:alt="alt">
+
+
+   <p>{{myText}}</p>    or,    <p v-text="myText"></p>
+
+    <p v-html="myHtml"></p>

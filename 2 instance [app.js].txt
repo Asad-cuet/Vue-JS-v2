@@ -1,0 +1,76 @@
+instance structure:
+
+app.js:
+
+     new Vue({
+       el:'',
+       data:
+       {
+        
+       }
+       methods:
+       {
+
+       }
+}); 
+
+
+
+data property:
+  
+       data:
+       {
+         title:"Asad",
+         bool_var:true,
+         arr:['asad','rahat','shanto','ridoy'],
+         dict:
+         {
+            name:"asad",
+            phone:01781856861
+         },
+         func:()=>
+         {
+            return "Hellow Asad"
+         }
+
+       }
+
+       In html:
+
+       <p>{{title}}</p>
+
+       <p>{{bool_var}}</p>
+
+       <p>{{arr[0]}}</p>
+
+       <p>{{dict.name}}</p>
+
+       <p>{{func()}}</p>
+
+
+methods property:
+
+
+      methods:
+      {
+         func()   or,  func:function()
+         {
+             return "Hello Asad";
+
+             //get data var
+
+             return this.title; 
+
+         {
+      }
+
+      in html:
+       <p>{{func()}}</p>
+
+
+
+
+
+
+
+

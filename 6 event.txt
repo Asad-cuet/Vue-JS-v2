@@ -1,0 +1,34 @@
+   data:
+   {
+     name:"asad",
+     x:0,
+     y:0
+   }
+
+   methods:
+   {
+     update()
+     {
+     this.name="Rahat";
+     },
+     
+     getCoord(event)
+     {
+       this.x=event.clientX;
+       this.y=event.clientY;
+   }
+
+
+in html:  [  v-on:eventName]
+
+    <p>{{name}}</p>
+
+    <button v-on:click="update">Click</button>  // no ()  
+
+
+   <div v-on:mousemove="getCoord" class="bg-red">
+      Hover me
+   </div>
+   X: {{x}}
+   Y: {{y}}
+  

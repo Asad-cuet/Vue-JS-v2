@@ -1,0 +1,26 @@
+Built-in Directive:
+
+   new Vue({
+          data:
+          {
+                name="Rahat"
+          },
+          methods:
+          {
+              update_var()
+              {
+                    // setTimeout(()=>{  ..  },ms);
+                    setTimeout(()=>
+                       {
+                            this.name="asad";    
+                       },2000);
+          }
+   });
+
+    in html: [ v-once  ]
+
+     <h1>{{name}}</h1>
+
+     <h1 v-once>{{name}}</h1>  //it won't change for v-once
+
+     {{update}}  //name will change here

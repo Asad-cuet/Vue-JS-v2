@@ -1,0 +1,7 @@
+
+
+  v-on:click  = @click
+
+  v-bind:href  = :href
+
+  v-model = no short hand

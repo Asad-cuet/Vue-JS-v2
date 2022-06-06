@@ -1,0 +1,10 @@
+1.installation:
+
+ download development version v2
+2.reaarange:
+
+   project file:
+        app.js  :: all my code here
+        vue.js
+        index.html
+

@@ -1,0 +1,24 @@
+   data:
+   {
+     name:"asad"
+   }
+
+   methods:
+   {
+     update()
+     {
+     this.name="Rahat";
+     }
+     
+   }
+
+
+in html:  [  v-on:eventName.modifier]
+ 
+    <p>{{name}}</p>
+
+    <button v-on:click.right="update">Click</button>  // on right button click()  
+
+
+
+  

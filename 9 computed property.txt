@@ -1,0 +1,34 @@
+
+   data:
+   {
+      a:0,
+      b:0,
+      salary:10
+   },
+    computed:   //here is computed
+    {
+     addToA()
+     {
+      return this.a + this.salary;
+     },
+     addToB()
+     {
+      return this.b + this.salary;
+     }
+
+    }
+  
+in html:
+
+    //if clicked in one ,it will render all method
+    // for this problem,computed property
+
+     <button v-on:click="a++"> Add A</button>
+     <button v-on:click="b++"> Add B</button>
+
+     A = {{a}}
+     B = {{b}}
+
+     Salary + A = {{addToA}}   // no () ,when computed
+
+     Salary + B = {{addToB}}

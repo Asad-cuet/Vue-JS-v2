@@ -1,0 +1,34 @@
+   data:
+   {
+     formData:
+     {
+         name:'',
+         email:''
+     }
+   }
+
+   methods:
+   {
+     handleForm(e)
+     {
+       //  e.preventDefault();  // for stop page loading
+       console.log(this.formData);
+     }
+     
+   }
+
+
+in html:  [  v-on:submit.prevent]   //prevent for stop loading page
+ 
+    <form v-on:submit.prevent="handleForm">
+ 
+    <input type="text" v-model="formData.name">
+
+    <input type="text" v-model="formData.email">
+
+    <button type="submit">Click</button> 
+    </form>   
+
+
+
+  
