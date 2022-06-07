@@ -1,0 +1,55 @@
+new Vue({
+
+      data:
+      {
+        name:"asad"
+      }
+
+      methods:
+      {
+       update(){  this.name="rahat"; }
+       kill_inst() {  this.$destroy();  }
+      }
+    
+      beforeCreate()
+      {
+        console.log("Before Create");
+      },
+      created()
+      {
+        console.log("Created");
+      },
+      beforeMount()
+      {
+        console.log("Before Mount");
+      },
+      mounted()
+      {
+        console.log("Mounted");
+      },
+      beforeUpdate()
+      {
+        console.log("Before Update");
+      },
+      updated()
+      {
+        console.log("Updated");
+      },
+      beforeDestroy()
+      {
+        console.log("Before Destroy");
+      },
+      destroyed()
+      {
+        console.log("Destroyed");
+      },
+});
+
+
+html:
+
+    {{name}}
+
+    <button @click="update">Update</button>
+
+    <button @click="kill_inst">Destroy</button>

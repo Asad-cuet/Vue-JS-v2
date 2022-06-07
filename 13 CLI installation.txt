@@ -1,0 +1,12 @@
+1.Requiement:
+
+    *Node Js (NPM)  or,
+      *Yarn Package Manager [use it]
+    *Git Bash  or,
+      *Bash terminal in vs code
+
+Yarn Installation
+
+2.Site:  https://cli.vuejs.org/
+
+3.Run: npm install --global yarn

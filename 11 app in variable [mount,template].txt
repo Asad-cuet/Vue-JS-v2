@@ -1,0 +1,26 @@
+const temp='<p>My name is {{name}}</p>' ;
+
+const app1 = new Vue({
+     data:
+     {
+       name:"Asad"
+     },
+     template: '<p>My name is {{name}}</p>' or, temp   //for large template we will use a const template on top
+});
+
+
+setTimeout(()=>{
+     app1.$mount('#app1')   //wxecute after 2 second
+},2000);
+
+
+html:
+
+   My Name is {{name}}
+
+1st Output: My Name is {{name}} ,,,,
+ 
+            for avoid this,we used template
+
+
+
