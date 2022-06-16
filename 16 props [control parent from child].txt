@@ -1,0 +1,50 @@
+***props used for control child component
+   from parent component
+
+
+***How to
+
+
+Header.vue:
+
+     <template>
+]     <div>
+         Name:{{myName}} 
+         Age: {{age}}
+<button @click="updateName">Click</button>
+      </div>
+     </template>
+
+     <script>
+         export default {
+               props: {
+                    myName: String,
+                    age:Number
+               },
+               methods: {
+                    updateName() 
+                    {
+                         this.$emit('event_name','asad');
+                    }
+               }
+     </script>
+
+
+App.vue:
+
+     <template>
+         <Header v-bind:name="myName" v-bind:age_="age"/>  //out:
+         @event_name="myName=$event"
+     </template>
+
+     <script>
+         export default {
+             data()
+             {
+                 return {
+                      name:"Rahat",
+                      age_: 21
+                 }
+             }
+         }
+     </script>       

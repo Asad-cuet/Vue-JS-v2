@@ -1,0 +1,11 @@
+***Style in app.vue is globally
+
+
+***For Locally:
+     Header.vue:
+        <style scoped> //without scoped its global
+        ..
+        </style>
+
+
+***You can use css direct in index.html

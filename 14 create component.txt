@@ -1,0 +1,72 @@
+new:
+    src/Components/..  all comp. will be here
+
+    Components/Header.vue and Footer.vue
+
+
+
+***Header.vue:
+
+
+<template>
+      <div class="new-component">
+           Header
+      </div>
+</template>
+
+
+<script>
+export default {
+  name: 'NewComponent',
+}
+</script>
+
+
+***Import in App.vue ,register,use Locally:
+
+<template>
+  <div>
+    <app-header/> <!-- Using Component also: <app-header/>  -->
+  </div>
+</template>
+
+<script>
+
+//locally importing
+
+import Header from './Components/Header';
+
+export default {
+
+  //Registration
+
+  components: {
+  'app-header' : Header   // giving comp. name 'app-header'
+
+  // also just(ES6): Header
+  }
+
+}
+</script>
+
+
+***Globally Importing:
+
+main.js:
+
+    import Header from './Compoenents/Header.vue';
+
+    Vue.component('app-header',Header)
+    new Vue({
+    
+});
+
+App.vue:
+
+    <template>
+       <app-header/>
+    </template>
+
+
+
+

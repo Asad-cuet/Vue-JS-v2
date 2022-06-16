@@ -1,0 +1,53 @@
+***props used for control child component
+   from parent component
+
+
+***How to
+
+
+   Header.vue:
+     <template>
+         {{myName}} 
+          
+         or,
+
+         <ul>
+            <li v-for="stu in Students" v-bindkey="stu">
+              {{stu}}
+            </li>
+         </ul>
+     </template>
+
+     <script>
+         export default {
+               props: ['myName']
+               Or,
+               props: {
+                    myName: {        //for validation
+                        type:String,  or Array
+                        required:true
+                    },
+                    students: {
+                       type:Array
+                    }
+         }
+     </script>
+
+
+   App.vue:
+
+     <template>
+         <Header v-bind:myName="name" v-bind:students="student"/>  //out:asad
+     </template>
+
+     <script>
+         export default {
+             data()
+             {
+                 return {
+                      name:"asad",
+                      student: ['asad','rahat','shanto']
+                 }
+             }
+         }
+     </script>       

@@ -1,0 +1,121 @@
+***Transfer data header to footer
+
+
+***How to
+
+main.js:
+
+
+      export const bus = new Vue();
+
+
+
+****Parent***
+
+
+
+
+App.vue:
+
+     <template>
+         <Header v-bind:name="myName" />  //out:
+         <Footer v-bind:age_="age"/>  //out:
+         @event_name="myName=$event"
+     </template>
+
+     <script>
+         import Header from '...Header.vue';
+         import Footer from '...Footer.vue';
+         export default {
+             data()
+             {
+                 return {
+                      name:"Rahat",
+                      age_: 21
+                 }
+             }
+             components: {
+               Header,Footer  
+              }
+         }
+     </script> 
+
+
+
+
+
+
+
+
+****1st child***
+
+
+
+
+
+
+Header.vue:
+
+     <template>
+     <div>
+         Name:{{myName}} 
+         
+     <button @click="updateName">Click</button>
+      </div>
+     </template>
+
+     <script>
+
+         import {bus} from '../../main';
+
+         export default {
+               props: {
+                    myName: String
+               },
+               methods: {
+                    updateName() 
+                    {
+                         this.myName="shanto";   //also can change of 1st
+                         bus.$emit('anyName','value');
+                    }
+               }
+     </script>
+
+
+
+
+
+
+
+
+
+****2nd child***
+
+
+
+
+
+footer.vue:
+
+     <template>
+     <div>
+         Age:{{age}}   //after click button in 1st child,it will change
+      </div>
+     </template>
+
+     <script>
+
+         import {bus} from '../../main';
+
+         export default {
+               props: {
+                    age:Number
+               },
+               created() 
+               {
+                   bus.$on('anyName',(data)=>{
+                            this.age=data;   //data=value in 1st child
+                   })
+     </script>
+
+      

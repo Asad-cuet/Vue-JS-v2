@@ -5,8 +5,37 @@
     *Git Bash  or,
       *Bash terminal in vs code
 
-Yarn Installation
 
 2.Site:  https://cli.vuejs.org/
 
+Yarn Installation
 3.Run: npm install --global yarn
+
+CLI Installation:
+Run: yarn global add @vue/cli
+
+
+Create Project:
+
+Run: vue create my-project
+
+Run Server: 
+Run : yarn serve
+
+
+***CLI Structure:
+
+Delete Component 
+     Component Structure:
+       <template><div> ...  </div></template>
+       <script>export default{ data() { }  } </script>
+       <style> </style>
+
+Clear App.vue // .app extestion means component file
+
+Note: App.vue is parent file
+      Component/.. is child file of App.vue
+
+Modules: All module files in the node_module
+
+main.js: All of my component  will render here 
