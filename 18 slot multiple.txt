@@ -1,0 +1,95 @@
+Child Component:
+
+**childComponent.vue:
+
+   <template>
+
+      <div>
+
+         <slot name="listName"></slot> 
+
+          I am List Helper
+
+         <slot name="listName2"></slot> 
+
+         //show slot after 2s loading
+
+         <slot name="other">Loading...</slot>   //it will show  1st 2 sec.after it will change
+    
+
+      </div>
+
+   </template>
+
+   <script>
+     export defaults 
+     {
+        data(){
+
+        }
+
+
+     }
+   <script>
+
+
+   <style>
+
+
+   </style>
+
+
+**App.vue:
+
+   <template>
+
+      <div>
+
+        <comList>   //output: I am List Helper
+
+          <ul slot="slotName">      
+          <li>1</li>
+          <li>1</li>
+          <li>1</li>
+          <li>1</li>
+          </ul>
+
+          <p slot="slotName2">
+           I am Asad
+          </p>
+
+          <p :slot="loader">See you again <p>  //diff slot name from other for show later by change it name
+
+        </comList>
+
+
+
+      </div>
+
+   </template>
+
+   <script>
+import comList from './components/listComponent'
+     export defaults 
+     {
+        data() {
+
+        },
+        components:{
+          comList
+        },
+
+        created(){
+          setTimeout(()=>{
+              this.loader='other'; 
+              },2000);
+        }
+
+     }
+   <script>
+
+
+   <style>
+
+
+   </style>

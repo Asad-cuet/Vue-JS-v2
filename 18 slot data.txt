@@ -1,0 +1,75 @@
+Child Component:
+
+**childComponent.vue:
+
+   <template>
+
+      <div>
+          I am List Helper
+
+         <slot></slot>    //for adding element from parent
+
+      </div>
+
+   </template>
+
+   <script>
+     export defaults 
+     {
+        data(){
+
+        }
+
+
+     }
+   <script>
+
+
+   <style>
+
+
+   </style>
+
+
+**App.vue:
+
+   <template>
+
+      <div>
+
+        <comList>   //output: I am List Helper
+
+          <ul>      
+          <li v-for="li in list" :key="li">{{li}}</li>
+          </ul>
+
+        </comList>
+
+
+
+      </div>
+
+   </template>
+
+   <script>
+import comList from './components/listComponent'
+     export defaults 
+     {
+        data() {
+           
+              return {
+               list:[1,2,3,4,5]
+              } 
+        },
+        components:{
+          comList
+        }
+
+     }
+   <script>
+
+
+   <style>
+
+
+   </style>

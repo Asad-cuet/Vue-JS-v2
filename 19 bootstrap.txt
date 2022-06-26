@@ -1,0 +1,30 @@
+2 ways:
+
+i.CDN : link in index.html file
+
+ii.Command tool
+
+
+
+***Command tool***
+npm,
+run: npm install bootstrap@5.2.0-beta1
+
+yarn,
+run:yarn add bootstrap@5.2.0-beta1
+
+    yarn add jquery pooper.js
+
+
+composer:composer require twbs/bootstrap:5.2.0-beta1
+
+
+
+now import files: //files > node_modules/
+
+
+main.js:
+
+  import 'bootstrap'
+  import 'bootstrap/dist/css/bootstrap.css'
+

@@ -1,0 +1,74 @@
+Child Component:
+
+**childComponent.vue:
+
+   <template>
+
+      <div>
+          I am List Helper
+
+         <slot></slot>    //for adding element from parent
+
+      </div>
+
+   </template>
+
+   <script>
+     export defaults 
+     {
+        
+
+     }
+   <script>
+
+
+   <style>
+
+
+   </style>
+
+
+**App.vue:
+
+   <template>
+
+      <div>
+
+        <comList>   //output: I am List Helper
+
+          <ul>        //adding list,but not show 1st,use solt to show
+          <li>1</li>
+          <li>1</li>
+          <li>1</li>
+          </ul>
+
+        </comList>
+
+
+
+      </div>
+
+   </template>
+
+   <script>
+import comList from './components/listComponent'
+     export defaults 
+     {
+        data() {
+
+        },
+        components:{
+          comList
+        }
+
+     }
+   <script>
+
+
+   <style>
+
+   
+  ul li{          //style can use in both
+   color:red;
+   }
+   </style>
