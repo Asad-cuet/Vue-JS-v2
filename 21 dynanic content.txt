@@ -1,0 +1,72 @@
+create:  
+  src/Components/
+
+  Components/Home.vue
+  Components/About.vue
+  Components/Contact.vue
+
+
+
+Contact.vue:
+
+     <template>..</template>
+     <script>
+         data(){  },
+         method:
+         {
+            activated()    //active when its live
+            {
+                  console.log('activated')
+            },
+            deactivated()   //deactivate when its change
+            {
+                  console.log('deactivated')
+            }  
+         } 
+     </script>
+
+
+App.vue:
+
+
+  <template>
+
+    <div class="container">
+
+    <button @click="componentToRender='comHome'">Home</button>
+
+    <button @click="componentToRender='comContact'">Contact</button>
+
+    <button @click="componentToRender='comAbout'">About</button>
+
+   
+     <keep-alive>                                             //hold data of content,even changes
+       <component :is="componentToRender"></component>
+     </keep-alive>
+
+    </div>
+
+  </template>
+
+  <script>
+    import ComHome from './Components/Home'
+    import ComAbout from './Components/About'
+    import ComContact from './Components/Contact'
+
+    export default
+    {
+          data()
+          {
+              return
+              {
+                   componentToRender:'comContact'
+              }
+          },
+          components:
+          {
+               comHome,
+               comAbout,
+               comContact
+          }
+    }
+   </script>

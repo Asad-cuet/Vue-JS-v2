@@ -1,0 +1,62 @@
+main.js:
+
+ Vue.directive('dir_name',{
+                   bind(el)  //1st
+                   {
+                       el.innerHTML='Hellow World'
+                   }
+
+                   or,
+                   bind(el,binding)  //2nd
+                   {
+                       el.innerHTML=binding.value
+                       el.style.color='red'
+                   }  
+
+                   or,
+                   bind(el,binding)  //3rd
+                   {
+                       el.innerHTML=binding.value
+                       if(binding.arg==='green')
+                       {
+                          el.style.color='green'
+                       }
+                   }  
+
+                   or,
+                   bind(el,binding)  //4th
+                   {
+                       el.innerHTML=binding.value
+                       if(binding.modifiers.green)
+                       {
+                          el.style.color='green'
+                       }
+                       if(binding.modifiers.big)
+                       {
+                          el.style.fontSize='30px'
+                       }
+                   }  
+              })
+
+ new Vue({}).$mount('#app')
+
+
+How to use it:
+App.vue:
+
+<template>
+
+    //1st
+   <div v-dir_name></div>   //output: Hellow World
+
+    //2nd
+   <div v-dir_name="'Hellow World'"></div>   //output: Hellow World
+
+    //3rd
+   <div v-dir_name:green="'Hellow World'"></div>   //output: green colored
+
+    //4th
+   <div v-dir_name.green.big="'Hellow World'"></div>   //output: green colored
+
+
+</template>

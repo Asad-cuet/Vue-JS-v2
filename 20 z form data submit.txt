@@ -50,13 +50,13 @@ App.vue:
                         <label for="sendmail">
                             <input
                                     type="checkbox"
-                                    id="sendmail"
+                                    id="sendmail"  v-model="sendMail"
                                     value="SendMail"> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
-                                    id="sendInfomail"
+                                    id="sendInfomail"   v-model="sendMail"
                                     value="SendInfoMail"> Send Infomail
                         </label>
                     </div>
@@ -68,13 +68,13 @@ App.vue:
                     <label for="male">
                         <input
                                 type="radio"
-                                id="male"
+                                id="male" v-model="gender"
                                 value="Male"> Male
                     </label>
                     <label for="female">
                         <input
                                 type="radio"
-                                id="female"
+                                id="female" v-model="gender"
                                 value="Female"> Female
                     </label>
                 </div>
@@ -83,9 +83,9 @@ App.vue:
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
                     <label for="priority">Priority</label>
                     <select
-                            id="priority"
+                            id="priority"  v-model="selected_priority"
                             class="form-control">
-                        <option></option>
+                        <option v-for="prio in priorirites" :key="prio">{{prio}}</option>
                     </select>
                 </div>
             </div>
@@ -93,13 +93,15 @@ App.vue:
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
-                            class="btn btn-primary">Submit!
+                            class="btn btn-primary"
+                                  @click.prevent="submitted">
+                    Submit!
                     </button>
                 </div>
             </div>
         </form>
         <hr>
-        <div class="row">
+        <div class="row" v-if="isSubmitted">      //hide before submit
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -112,10 +114,10 @@ App.vue:
                         <p style="white-space:pre-line;">Message:{{message}} </p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
-                            <li></li>
+                            <liv-for="mail in sendMail" :key="mail">{{mail}}</li>
                         </ul>
-                        <p>Gender:</p>
-                        <p>Priority:</p>
+                        <p>Gender: {{gender}}</p>
+                        <p>Priority:{{selected_priority}}</p>
                         <p>Switched:</p>
                     </div>
                 </div>
@@ -135,10 +137,22 @@ App.vue:
                 age:0
             },
             message:'',
+            sendMail:[],
+            gender:'Male',
+            priorities:['High','Medium','Low'],
+            selected_priority:'Medium',
+            isSubmitted:false
 
-         }
+         },
+         method:
+         {
+             submitted()
+             {
+                  this.isSubmiited=true;
+             }
+         } 
     }
-</script>
+</script> 
 
 <style>
  
