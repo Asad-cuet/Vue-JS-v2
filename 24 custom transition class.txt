@@ -1,0 +1,44 @@
+using  animate.css  , copy cdn in your project
+website: https://daneden.github.io/animate.css/
+App.vue:
+
+  <template>
+
+  <div class="container">
+
+    <transition 
+    name="appear "
+    enter-active-class="animated slideInDown delay-3s or slow"   //animated is required
+    enter-leave-class="animated slideInUp"
+    >
+
+    <div v-if="display" class="p-3 mb-2 bg-success text-white">Hello</div>
+ 
+    </transition> 
+
+   <butoon @click="display=!display" class="btn btn-primary">Toggle</button>
+
+  </div>
+
+  </template>
+
+  <script>
+
+  export default
+  {
+    data()
+    {
+        return
+        {
+           display:false
+        }
+    }
+    
+  }
+
+  </script>
+
+  <style>
+
+
+  </style>

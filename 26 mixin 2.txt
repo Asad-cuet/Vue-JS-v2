@@ -1,0 +1,152 @@
+Create component- 
+
+Client.vue:
+
+<template>
+
+    <div>
+
+         <p>{{text}}</p>
+
+         <ul>
+                <li v-for="car in cars" ":key="car">
+                   {{car}}                            //car is coming from mixin
+                </li>
+
+    </div>
+
+
+</template>
+
+<script>
+
+  import  {carMixin} from './mixin'  //importing mixin
+
+  export default()
+  {
+    data()
+    {
+        return
+        {
+           text:"Heloow World"
+           
+        }
+    },
+    mixins:{carMixin}         
+  }
+
+</script>
+
+
+****
+Create component- 
+
+User.vue:
+
+<template>
+
+    <div>
+
+         <p>{{text}}</p>
+
+         <ul>
+                <li v-for="car in cars" ":key="car">
+                   {{car}}                              //car is coming from mixin
+                </li>
+
+    </div>
+
+
+</template>
+
+
+<script>
+
+  import  {carMixin} from './mixin'  //importing mixin
+
+  export default()
+  {
+    data()
+    {
+        return
+        {
+           text:"Heloow World"
+           
+        }
+    },
+    mixins:{carMixin}         
+  }
+
+</script>
+
+
+
+****mixin****
+
+create on component file:
+
+mixix.js:
+
+export cnst carMixin={
+   data()
+   {
+       cars:['Ford','Toyota','Mezda','BMW']   
+   }
+}
+
+
+
+
+
+
+*****
+
+App.vue:
+
+  <template>
+
+  <div class="container">
+
+   <comClient/>
+
+   <comUser/>
+
+  </div>
+
+  </template>
+
+  <script>
+ 
+  import comClient from './Components/Client'
+  import comUser from './Components/User'
+
+  export default
+  {
+    data()
+    {
+        return
+        {
+           
+        }
+    },
+    components:
+    {
+    comClient,comUser
+    }
+    
+    
+  }
+
+  </script>
+
+
+  <style>
+
+
+  </style>
+
+
+
+
+main.js:
+

@@ -1,0 +1,53 @@
+App.vue:
+
+  <template>
+
+  <div class="container">
+
+    <transition name="appear ">
+
+    <div v-if="display" class="p-3 mb-2 bg-success text-white">Hello</div>
+ 
+    </transition> 
+
+   <butoon @click="display=!display" class="btn btn-primary">Toggle</button>
+
+  </div>
+
+  </template>
+
+  <script>
+
+  export default
+  {
+    data()
+    {
+        return
+        {
+           display:false
+        }
+    }
+    
+  }
+
+  </script>
+
+  <style>
+
+   .appear-enter{
+     opacity:0;
+     transform:translateX(30px)
+   }
+   .appear-enter-active{
+     transition: all .3s ease 3s;
+   }
+   .appear-leave{
+  
+   }
+   .appear-leave-active{
+      opacity:0;
+     transform:translateX(30px)
+      transition:all .3s ease;
+   }
+
+  </style>

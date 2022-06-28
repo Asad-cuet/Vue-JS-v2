@@ -1,0 +1,55 @@
+using  animate.css  , copy cdn in your project
+website: https://daneden.github.io/animate.css/
+App.vue:
+
+  <template>
+
+  <div class="container">
+
+   <p>{{text | upperCase | removeText}}</p>
+
+  </div>
+
+  </template>
+
+  <script>
+
+  export default
+  {
+    data()
+    {
+        return
+        {
+           text:'Hellow World'
+        }
+    },
+    filters:  //local
+    {
+        upperCase(value)
+        {
+           return value.toUpperCase();
+        },
+        removeText(value)
+        {
+            return value.slice(1);
+        }
+    }
+    
+  }
+
+  </script>
+
+  <style>
+
+
+  </style>
+
+
+
+//global
+
+main.js:
+
+   Vue.filter('removeText ',(value)=>{
+       return value.slice(1);
+    })
