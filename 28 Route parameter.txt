@@ -1,0 +1,167 @@
+installation: npm install vue-router
+
+
+
+main.js:   [import]
+
+     import VueRouter from 'vue-router'
+     Vue.use(VueRouter)
+
+     import {route} from './route'
+
+     const router= new VueRouter({
+        route,
+        mode: 'history'   //this remove # from url
+      })
+
+
+    new Vue({
+      render: h=>h(app),
+      router
+    }).$mount('#app')
+
+
+src/route.js:
+
+import comHome from './components/Home.vue';
+import comCust from './components/Customer.vue';
+export const routes=[                                     // 1 obj. is 1 path
+                    {
+                       path:'', //home
+                       component:comHome  //this com. showing in home
+                    },
+                    {
+                       path:'/customer', 
+                       component:comCust,  
+                       children:[
+                            {
+                                path:'',
+                                component:defaultShowComp
+                            },
+                            {
+                                path:':id',
+                                component:CompName
+                            },
+                            {
+                                path:':id/edit',
+                                component:CompName,
+                                name:'custEdit'
+                            }
+                       ]
+                    },                   
+
+                    ];
+
+
+
+App.vue:
+
+    <template>
+    <div>
+
+      <comHeader/>
+     
+      <router-view></router-view>   //this will show component. if '' path, show home comp. if '/customer' path , show cust. comp.
+
+    </div>
+    </template>
+    <script>
+    
+    import comHeader from './components/Header'
+
+    export default{
+     components:{
+       comHeader
+     }
+    }
+
+    </script>
+
+
+
+Header.vue:
+
+don't use it
+ <a href="">Home</a>
+
+ <a href="">Customer</a>
+
+use:
+
+  <template>
+
+  <router-link style="cursor:pointer" tag="li" to="/" class="">Home</router-link>
+
+  <router-link tag="li" to="/customer/1">1st Customer</router-link>
+
+  <router-link tag="li" to="/customer/2">2nd customer</router-link>
+
+
+   or,
+
+  <button @click="toHome">Home</button>
+
+  </template>
+
+   <script>
+    
+    import comHeader from './components/Header'
+
+    export default{
+     methods:{
+       toHome()
+       {
+          this.$router.push('/')
+       }
+     }
+    }
+
+    </script>
+
+
+
+
+
+
+
+
+Customer.vue:
+
+    <p>Loadeed Id:{{loadedId}} </p>  or {{$route.params.id}}
+
+    <router-view></router-view>   // for showing defaultShowComp
+
+    data()
+    {
+     return 
+     {
+       loadedId:this.$route.params.id
+     }
+    },
+     watch:
+     {
+        '$route'(to)
+        {
+             this.loadedId=to.params.id ;
+        }
+     }
+
+
+
+CustomerDetail.vue:
+
+
+    <router-link tag="button" :to="'/customer/'+$route.params.id+'/edit'"></router-link>
+
+or,
+
+    <router-link tag="button" :to="{name:'customerEdit',params:{id:$route.params.id}}"></router-link>
+
+
+
+
+
+
+
+
+

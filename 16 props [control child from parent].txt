@@ -1,5 +1,5 @@
 ***props used for control child component
-   from parent component
+   from parent component.Inputing data from parent to child
 
 
 ***How to
@@ -12,7 +12,7 @@
          or,
 
          <ul>
-            <li v-for="stu in Students" v-bindkey="stu">
+            <li v-for="stu in Students" v-bind:key="stu">
               {{stu}}
             </li>
          </ul>

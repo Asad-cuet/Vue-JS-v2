@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+src/route.js:
+
+import comHome from './components/Home.vue'
+import comCust from './components/Customer.vue'
+export const routes=[                                     // 1 obj. is 1 path
+                    {
+                       path:'', //home
+                       component:comHome  //this com. showing in home
+                    },
+                    {
+                       path:'/customer', 
+                       component:comCust  //this com. showing in home
+                    },
+
+                    {
+                          path:'*',    //for unexist path
+                          component:comHome
+                     }                  
+
+                    ];
+
+
+
+
+Header.vue:
+
+
+  <template>
+
+  <router-link active-class="active" exact to="/" class="">Home</router-link>
+
+  <router-link active-class="active" exact to="/customer">Customer</router-link>
+
+
+   cover the page for on scrollbar
+
+   //now if click in route, it will show at bottom in that page.for this use scroll behaviour
+
+  </template>
+
+  <style scoped>
+   ul li {
+      color:white;
+       }
+   ul .active {
+      color:red!important;
+   }
+
+  </style>
+
+
+
+
+main.js:   [import]
+
+     import VueRouter from 'vue-router'
+     Vue.use(VueRouter)
+
+     import {route} from './route'
+
+     const router= new VueRouter({
+        route,
+        mode: 'history'   //this remove # from url,
+        scrollBehavior(to,from)     //para is opt.
+        {
+         return
+         {
+            x:0,
+            y:0
+         }
+        }
+      })
+
+
+    new Vue({
+      render: h=>h(app),
+      router
+    }).$mount('#app')
+
+
+
+

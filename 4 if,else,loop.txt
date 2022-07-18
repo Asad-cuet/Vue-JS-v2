@@ -56,7 +56,7 @@ Built-in Directive:
 
 
       <p v-for="(val,key,index) in dict">
-      {{index}} : {{key}} = {{frnd}}
+      {{index}} : {{key}} = {{val}}
       </p>
 
    for as count er:

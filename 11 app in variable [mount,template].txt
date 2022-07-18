@@ -16,7 +16,7 @@ setTimeout(()=>{
 
 html:
 
-   My Name is {{name}}
+   My Name is {{template}}
 
 1st Output: My Name is {{name}} ,,,,
  

@@ -1,0 +1,58 @@
+Vue resource: https://github.com/pagekit/vue-resource
+
+installation:
+
+yarn: $ yarn add vue-resource
+npm:  $ npm install vue-resource
+
+
+how to use:
+
+main.js:
+
+  import VueResource from 'vue-resource'
+
+  Vue.use(VueResource);
+
+
+component.vue:
+
+  <template>
+
+    <div>
+
+       <div v-for="(data,id) in datas" :key="id">
+         {{data.col}}
+
+      </div>
+
+    </div>
+
+  </template>
+
+  <script>
+  
+     export default
+     {
+          data()
+          {
+              return
+              {
+                  email:'',
+                  password:'',
+                  datas:''
+              }
+          },
+          methods:
+          {
+              read()
+              {
+               this.$http.get('').then((data)=>{
+                               console.log(data);
+                               this.datas=data.body.slice(0,10)
+                              })
+              }
+
+          }
+
+  </script>  

@@ -1,0 +1,126 @@
+installation: npm install vue-router
+
+
+
+main.js:   [import]
+
+     import VueRouter from 'vue-router'
+     Vue.use(VueRouter)
+
+     import {route} from './route'
+
+     const router= new VueRouter({
+        route,
+        mode: 'history'   //this remove # from url
+      })
+
+
+    new Vue({
+      render: h=>h(app),
+      router
+    }).$mount('#app')
+
+
+src/route.js:
+
+import comHome from './components/Home.vue'
+import comCust from './components/Customer.vue'
+export const routes=[                                     // 1 obj. is 1 path
+                    {
+                       path:'', //home
+                       component:comHome  //this com. showing in home
+                    },
+                    {
+                       path:'/customer', 
+                       component:comCust  //this com. showing in home
+                    },                   
+                    {
+                          path:'*',    //for unexist path
+                          component:comHome
+                     }  
+                    ];
+
+
+
+App.vue:
+
+    <template>
+    <div>
+
+      <router-view></router-view>   //this will show component. if '' path, show home comp. if '/customer' path , show cust. comp.
+
+    </div>
+    </template>
+    <script>
+
+
+    </script>
+
+
+*****onclick route:***
+
+
+
+Header.vue:
+
+don't use it
+ <a href="">Home</a>
+
+ <a href="">Customer</a>
+
+use:
+
+  <template>
+
+  <router-link to="/" class="">Home</router-link>
+
+  <router-link to="/customer">Home</router-link>
+
+
+
+
+   or,
+
+  <button @click="toHome">Home</button>
+
+  </template>
+
+   <script>
+    
+    import comHeader from './components/Header'
+
+    export default{
+     methods:{
+       toHome()
+       {
+          this.$router.push('/')
+       }
+     }
+    }
+
+    </script>
+
+
+
+App.vue:
+
+    <template>
+    <div>
+
+      <comHeader/>
+     
+      <router-view></router-view>   //this will show component. if '' path, show home comp. if '/customer' path , show cust. comp.
+
+    </div>
+    </template>
+    <script>
+    
+    import comHeader from './components/Header'
+
+    export default{
+     components:{
+       comHeader
+     }
+    }
+
+    </script>

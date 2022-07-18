@@ -1,0 +1,92 @@
+1.setup:
+index.html  [app in body & vue in head linked]
+
+app.js  [my code]
+
+vue.js  [library]
+
+
+2.How it works:
+
+i.index.html ---> app.js
+
+ii. app.js  <--- vue.js
+
+iii.app.js ---> index.html
+
+
+3.app.js structure:
+
+new Vue({
+      
+        el:'',
+
+        data: {  var:'asad' }
+
+        methods: { func(){ } },
+
+        //mount
+        beforeCreate() {}, Created() {}, beforeMount() {}, mounted() {}, beforeUpdate() {}, updated() {}, beforwDestry(){}, destroyed() {}
+
+        });
+
+
+***if in var**
+
+
+cnst app=new Vue({
+      
+        data: {  var:'asad' }
+
+        methods: { func(){ } },
+
+        //mount
+        beforeCreate() {}, Created() {}, beforeMount() {}, mounted() {}, beforeUpdate() {}, updated() {}, beforwDestry(){}, destroyed() {}
+
+        });
+
+app.$mount('#app');
+
+
+
+
+
+
+
+4.index.html code:
+
+***if:
+
+<p v-if="var">..</p>
+
+***bind:
+
+<img v-bind:src="var">    or   :src="var"
+
+
+***event:
+
+<button v-on:click="func">...</button>   or  @click="func"
+
+
+***event.modifier:
+
+<button v-on:click.right="func">...</button>   or  @click.right="func"
+
+
+***form:
+
+<form @submi.prevent="func">
+
+<input tye="text" v-model="name"/>
+
+<button type="submit">..</button>
+
+</form>
+
+app.js:
+
+data{ name:'' },
+
+methods:{  func() { var name=this.name; }  }
+

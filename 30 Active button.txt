@@ -1,0 +1,49 @@
+
+
+src/route.js:
+
+import comHome from './components/Home.vue'
+import comCust from './components/Customer.vue'
+export const routes=[                                     // 1 obj. is 1 path
+                    {
+                       path:'', //home
+                       component:comHome  //this com. showing in home
+                    },
+                    {
+                       path:'/customer', 
+                       component:comCust  //this com. showing in home
+                    },
+
+                    {
+                          path:'*',    //for unexist path
+                          component:comHome
+                     }                  
+
+                    ];
+
+
+
+
+Header.vue:
+
+
+  <template>
+
+  <router-link active-class="active" exact to="/" class="">Home</router-link>
+
+  <router-link active-class="active" exact to="/customer">Home</router-link>
+
+  </template>
+
+  <style scoped>
+   ul li {
+      color:white;
+       }
+   ul .active {
+      color:red!important;
+   }
+
+  </style>
+
+
+

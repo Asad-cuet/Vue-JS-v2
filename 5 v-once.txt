@@ -23,4 +23,4 @@ Built-in Directive:
 
      <h1 v-once>{{name}}</h1>  //it won't change for v-once
 
-     {{update}}  //name will change here
+     {{update_var}}  //name will change here
