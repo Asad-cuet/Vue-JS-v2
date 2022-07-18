@@ -1,3 +1,16 @@
+****mixin****Mixin is a js file.By mixin data,method can be reuse in different component
+
+create on component file:
+
+mixix.js:
+
+export cnst carMixin={
+   data()
+   {
+       cars:['Ford','Toyota','Mezda','BMW']   
+   }
+}
+
 Create component- 
 
 Client.vue:
@@ -81,18 +94,7 @@ User.vue:
 
 
 
-****mixin****
 
-create on component file:
-
-mixix.js:
-
-export cnst carMixin={
-   data()
-   {
-       cars:['Ford','Toyota','Mezda','BMW']   
-   }
-}
 
 
 

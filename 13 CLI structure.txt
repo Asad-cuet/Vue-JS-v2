@@ -1,0 +1,96 @@
+1.
+vue library is in node_modules > vue file
+
+main.js is global file
+
+App.vue is parent Component ,  controls all the component
+
+
+2.starts: main.js
+
+3.main.js --> App.vue  ---> #app in index.html
+
+
+
+
+
+
+
+main.s structure:   ***
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+
+
+
+App.vue structure:   ****
+
+
+<template>
+  <div>
+    <Header/> 
+  </div>
+</template>
+
+<script>
+
+import Header from './Components/Header';
+
+export default {
+
+             data()
+             {
+                 return {
+                      var:'',
+                      arr: ['','',''],
+                      bool_var:true,
+                      dict:
+                      {
+                         var:'',
+                         phone:01781856861
+                      }
+                 }
+             },
+ 
+             methods()
+             {
+
+
+             },
+
+             components: {
+                            Header  
+                         }
+
+               },
+
+             //mount
+</script>
+
+<style>
+
+</style>
+
+
+Header component structure:  ****
+
+
+<template>
+      <div>
+           
+      </div>
+</template>
+
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+
+</style>
+

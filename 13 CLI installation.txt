@@ -12,7 +12,10 @@ Yarn Installation
 3.Run: npm install --global yarn
 
 CLI Installation:
-Run: yarn global add @vue/cli
+Run: 
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
 
 
 Create Project:

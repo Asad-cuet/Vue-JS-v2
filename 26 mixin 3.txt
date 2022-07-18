@@ -1,0 +1,45 @@
+craete func.js:
+
+  export default()
+  {
+    data()
+    {
+        return
+        {
+           cnt:0
+        }
+    },
+    methods:
+    {
+       incre()
+       {
+           cnt=cnt+1;
+       }
+    }      
+  }
+
+
+
+comp.vue:
+
+<template>
+
+    <div>
+
+         <p @mouseover="incre">{{cnt}}</p>
+
+
+    </div>
+
+
+</template>
+
+<script>
+impoer counter from './func.js'
+  export default()
+  {
+    mixins:[counter]        
+  }
+
+</script>
+

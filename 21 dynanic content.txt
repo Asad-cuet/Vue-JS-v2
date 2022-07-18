@@ -33,16 +33,22 @@ App.vue:
 
     <div class="container">
 
-    <button @click="componentToRender='comHome'">Home</button>
+    <button @click="activeComp='comHome'">Home</button>
 
-    <button @click="componentToRender='comContact'">Contact</button>
+    <button @click="activeComp='comContact'">Contact</button>
 
-    <button @click="componentToRender='comAbout'">About</button>
+    <button @click="activeComp='comAbout'">About</button>
 
    
      <keep-alive>                                             //hold data of content,even changes
-       <component :is="componentToRender"></component>
+       <component :is="activeComp"></component>
      </keep-alive>
+
+
+
+//     or,
+
+     <ComHome v-if="activeComp=='ComHome'" />  ..same
 
     </div>
 
@@ -59,7 +65,7 @@ App.vue:
           {
               return
               {
-                   componentToRender:'comContact'
+                   activeComp:'comContact'
               }
           },
           components:
