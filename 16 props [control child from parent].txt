@@ -1,14 +1,13 @@
 ***props used for control child component
-   from parent component.Inputing data from parent to child
+   from parent component
 
 
 ***How to
-
-
-   App.vue:
+App.vue:
 
      <template>
-         <Header v-bind:myName="name" v-bind:students="student"/>  //out:asad
+         <Header title="This is Header" :title2="title2"/>  //out:
+         
      </template>
 
      <script>
@@ -16,52 +15,86 @@
              data()
              {
                  return {
-                      name:"asad",
-                      student: ['asad','rahat','shanto']
+                    title2:'This is header 2'
                  }
              }
          }
-     </script>  
+     </script>       
 
 
 
-   Header.vue:
+Header.vue:
+
      <template>
-         {{myName}} 
-          
-         or,
-
-         <ul>
-            <li v-for="stu in Students" v-bind:key="stu">
-              {{stu}}
-            </li>
-         </ul>
+     <div>
+           {{title}}
+           {{title2}}
+      </div>
      </template>
 
      <script>
          export default {
-               props: ['myName']
-
-               Or,
-
-               props:
-               {
-                name:String,
-                age:Number
-               }
-
-               Or,
-
-               props: {
-                    myName: {        //for validation
-                        type:String,  or Array
-                        required:true
-                    },
-                    students: {
-                       type:Array
+               props: { title,title2 },
+               methods: {
+                    updateName() 
+                    {
+                         this.$emit('event_name','asad');
                     }
-         }
+               }
      </script>
 
 
-     
+
+
+
+
+
+***** ********************** ****************** OR ***************
+
+
+
+
+
+Header.vue:
+
+     <template>
+     <div>
+         Name:{{myName}} 
+         Age: {{age}}
+         <button @click="updateName">Click</button>
+      </div>
+     </template>
+
+     <script>
+         export default {
+               props: {
+                    myName: String,
+                    age:Number
+               },
+               methods: {
+                    updateName() 
+                    {
+                         this.$emit('event_name','asad');
+                    }
+               }
+     </script>
+
+
+App.vue:
+
+     <template>
+         <Header v-bind:name="myName" v-bind:age_="age"/>  //out:
+         @event_name="myName=$event"
+     </template>
+
+     <script>
+         export default {
+             data()
+             {
+                 return {
+                      name:"Rahat",
+                      age_: 21
+                 }
+             }
+         }
+     </script>       

@@ -3,6 +3,55 @@
 
 
 ***How to
+App.vue:
+
+     <template>
+         <Header title="This is Header"/>  //out:
+         
+     </template>
+
+     <script>
+         export default {
+             data()
+             {
+                 return {
+
+                 }
+             }
+         }
+     </script>       
+
+
+
+Header.vue:
+
+     <template>
+     <div>
+           {{title}}
+      </div>
+     </template>
+
+     <script>
+         export default {
+               props: { title },
+               methods: {
+                    updateName() 
+                    {
+                         this.$emit('event_name','asad');
+                    }
+               }
+     </script>
+
+
+
+
+
+
+
+***** ********************** ****************** OR ***************
+
+
+
 
 
 Header.vue:
