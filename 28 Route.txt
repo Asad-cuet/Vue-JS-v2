@@ -1,3 +1,24 @@
+Summery:
+
+
+link:   <router-link to="/home">Home</router-link>  or,  :to={name:'Home'}
+
+by method:  <button @click="toHome">Home</button>
+       toHome()
+       {
+          this.$router.push('/home');
+       }
+
+
+always in app.vue:  <router-view></router-view> 
+
+rendering: App > route.js > call path component > App with called component
+
+
+
+
+
+
 installation: npm install vue-router
 
 
@@ -64,7 +85,7 @@ App.vue:
 Header.vue:
 
 don't use it
- <a href="">Home</a>
+ <a href="">Home</a>    //it will refresh the whole page
 
  <a href="">Customer</a>
 

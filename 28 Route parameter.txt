@@ -1,31 +1,11 @@
-installation: npm install vue-router
 
-
-
-main.js:   [import]
-
-     import VueRouter from 'vue-router'
-     Vue.use(VueRouter)
-
-     import {route} from './route'
-
-     const router= new VueRouter({
-        route,
-        mode: 'history'   //this remove # from url
-      })
-
-
-    new Vue({
-      render: h=>h(app),
-      router
-    }).$mount('#app')
 
 
 src/route.js:
 
 import comHome from './components/Home.vue';
 import comCust from './components/Customer.vue';
-export const routes=[                                     // 1 obj. is 1 path
+export const routes=[                                  
                     {
                        path:'', //home
                        component:comHome  //this com. showing in home
@@ -40,7 +20,8 @@ export const routes=[                                     // 1 obj. is 1 path
                             },
                             {
                                 path:':id',
-                                component:CompName
+                                component:CompName,
+                                props:true        //parameter id will be a props
                             },
                             {
                                 path:':id/edit',
@@ -54,39 +35,11 @@ export const routes=[                                     // 1 obj. is 1 path
 
 
 
-App.vue:
-
-    <template>
-    <div>
-
-      <comHeader/>
-     
-      <router-view></router-view>   //this will show component. if '' path, show home comp. if '/customer' path , show cust. comp.
-
-    </div>
-    </template>
-    <script>
-    
-    import comHeader from './components/Header'
-
-    export default{
-     components:{
-       comHeader
-     }
-    }
-
-    </script>
-
 
 
 Header.vue:
 
-don't use it
- <a href="">Home</a>
 
- <a href="">Customer</a>
-
-use:
 
   <template>
 
@@ -97,29 +50,7 @@ use:
   <router-link tag="li" to="/customer/2">2nd customer</router-link>
 
 
-   or,
-
-  <button @click="toHome">Home</button>
-
   </template>
-
-   <script>
-    
-    import comHeader from './components/Header'
-
-    export default{
-     methods:{
-       toHome()
-       {
-          this.$router.push('/')
-       }
-     }
-    }
-
-    </script>
-
-
-
 
 
 
@@ -127,7 +58,7 @@ use:
 
 Customer.vue:
 
-    <p>Loadeed Id:{{loadedId}} </p>  or {{$route.params.id}}
+    <p>Loadeed Id:{{loadedId}} </p>  or {{$route.params.id}}  or, when props: {{id}}
 
     <router-view></router-view>   // for showing defaultShowComp
 
@@ -144,7 +75,11 @@ Customer.vue:
         {
              this.loadedId=to.params.id ;
         }
-     }
+     },
+
+     //when props true
+
+     props:['id']
 
 
 
@@ -155,7 +90,7 @@ CustomerDetail.vue:
 
 or,
 
-    <router-link tag="button" :to="{name:'customerEdit',params:{id:$route.params.id}}"></router-link>
+    <router-link tag="button" :to="{name:'customerEdit',params:{id:$route.params.id} }"></router-link>
 
 
 
