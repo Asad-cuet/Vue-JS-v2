@@ -20,10 +20,11 @@ rendering: App > route.js > call path component > App with called component
 
 
 installation: npm install vue-router
-
+_____________
 
 
 main.js:   [import]
+________
 
      import VueRouter from 'vue-router'
      Vue.use(VueRouter)
@@ -43,6 +44,7 @@ main.js:   [import]
 
 
 src/route.js:
+____________
 
 import comHome from './components/Home.vue'
 import comCust from './components/Customer.vue'
@@ -56,8 +58,8 @@ export const routes=[                                     // 1 obj. is 1 path
                        component:comCust  //this com. showing in home
                     },                   
                     {
-                          path:'*',    //for unexist path
-                          component:comHome
+                          path:'*',    //for unexist path   or, path: '/:catchAll(.*)',
+                          component:com404      
                      }  
                     ];
 
